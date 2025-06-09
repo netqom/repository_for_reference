@@ -1,0 +1,284 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+  margin: 0;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+:root {
+  --border-radius: var(--mui-shape-borderRadius);
+  --border-color: var(--mui-palette-divider);
+  --primary-color: var(--mui-palette-primary-main);
+  --background-color: var(--mui-palette-background-default);
+  --header-height: 64px;
+  --header-z-index: var(--mui-zIndex-appBar);
+  --footer-z-index: 10;
+  --customizer-z-index: var(--mui-zIndex-drawer);
+  --search-z-index: var(--mui-zIndex-tooltip);
+  --drawer-z-index: var(--mui-zIndex-drawer);
+  --backdrop-color: rgb(var(--mui-mainColorChannels-light) / 0.5);
+  --mui-mainColorChannels-shadow: var(--mui-mainColorChannels-lightShadow);
+}
+
+[data-dark] {
+  --backdrop-color: rgb(21 16 43 / 0.6);
+  --mui-mainColorChannels-shadow: var(--mui-mainColorChannels-darkShadow);
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border-width: 0;
+  border-style: solid;
+}
+
+html {
+  display: flex;
+  inline-size: 100%;
+  min-block-size: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul:not([class]) {
+  margin-block: 1rem;
+  padding-inline-start: 40px;
+}
+
+/*! Do not remove the following styles */
+/*
+  Fix the popout / submenu closing issue when using hover trigger to open the menu and using
+  perfectscrollbar where the bridge create with safe polygon by floating ui was not working
+*/
+[data-floating-ui-safe-polygon] .scrollbar-container {
+  pointer-events: auto;
+}
+
+[data-floating-ui-safe-polygon] .scrollbar-container .ps__rail-y {
+  pointer-events: none;
+}
+
+.ps__rail-y {
+  inset-inline-end: 0 !important;
+  inset-inline-start: auto !important;
+
+  & .ps__thumb-y {
+    inset-inline-end: 3px !important;
+    inset-inline-start: auto !important;
+    background-color: var(--mui-palette-divider);
+    inline-size: 6px;
+
+    &:hover,
+    &:focus,
+    &.ps--clicking {
+      background-color: var(--mui-palette-action-disabled) !important;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.ps--clicking {
+    background-color: var(--mui-palette-action-hover) !important;
+  }
+
+  &:hover,
+  &:focus,
+  &.ps--clicking {
+    .ps__thumb-y {
+      background-color: var(--mui-palette-action-disabled) !important;
+    }
+  }
+}
+
+.ts-vertical-nav-root {
+  .ps__thumb-y {
+    inline-size: 4px;
+
+    &:hover,
+    &:focus,
+    &.ps--clicking {
+      inline-size: 6px;
+    }
+  }
+
+  .ps__rail-y {
+    inline-size: 10px;
+
+    &:hover,
+    &:focus,
+    &.ps--clicking {
+      background-color: transparent !important;
+
+      .ps__thumb-y {
+        inline-size: 6px;
+      }
+    }
+  }
+}
+
+:where([class^='ri-']) {
+  font-size: 1.5rem;
+}
+
+/* Fix width issue for the input-otp component */
+input[autocomplete='one-time-code'][data-input-otp='true'] {
+  inline-size: 100% !important;
+}
+
+code {
+  font-family: inherit;
+  padding-block: 2px;
+  padding-inline: 4px;
+  border-radius: 4px;
+  font-size: 90%;
+  color: var(--mui-palette-info-main);
+  background-color: rgb(var(--mui-palette-info-mainChannel) / 0.08);
+  border: 0;
+}
+
+.nextjs-toast.nextjs-toast-errors-parent {
+  display: none !important;
+}
+
+
+.loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+
+
+.keen-slider:not([data-keen-slider-disabled]) {
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  align-content: flex-start;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  -khtml-user-select: none;
+  width: 100%
+}
+
+.keen-slider:not([data-keen-slider-disabled]) .keen-slider__slide {
+  min-height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%
+}
+
+.keen-slider:not([data-keen-slider-disabled])[data-keen-slider-reverse] {
+  flex-direction: row-reverse
+}
+
+
+.action-btn-comp {
+  @apply text-xs hover:bg-primary hover:bg-opacity-10 hover:text-white
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.gradient-shadow{background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.02) 3%,rgba(223,223,223,0.03) 4%,rgba(227,227,227,0.04) 5%,rgba(223,223,223,0.06) 8%,rgba(225,225,225,0.07) 9%,rgba(228,228,228,0.08) 10%,rgba(217,217,217,0.09) 11%,rgba(220,220,220,0.1) 12%,rgba(211,211,211,0.11) 13%,rgba(206,206,206,0.12) 14%,rgba(200,200,200,0.13) 15%,rgba(204,204,204,0.14) 16%,rgba(197,197,197,0.15) 17%,rgba(193,193,193,0.16) 18%,rgba(191,191,191,0.17) 19%,rgba(186,186,186,0.18) 20%,rgba(185,185,185,0.19) 21%,rgba(187,187,187,0.2) 22%,rgba(182,182,182,0.21) 23%,rgba(176,176,176,0.22) 24%,rgba(177,177,177,0.23) 25%,rgba(170,170,170,0.24) 26%,rgba(163,163,163,0.25) 27%,rgba(165,165,165,0.26) 28%,rgba(159,159,159,0.27) 29%,rgba(160,160,160,0.28) 30%,rgba(152,152,152,0.29) 31%,rgba(153,153,153,0.3) 32%,rgba(149,149,149,0.31) 33%,rgba(142,142,142,0.32) 34%,rgba(139,139,139,0.33) 35%,rgba(135,135,135,0.33) 36%,rgba(137,137,137,0.34) 37%,rgba(129,129,129,0.34) 38%,rgba(131,131,131,0.35) 39%,rgba(126,126,126,0.35) 40%,rgba(122,122,122,0.36) 41%,rgba(116,116,116,0.36) 42%,rgba(118,118,118,0.37) 43%,rgba(113,113,113,0.37) 44%,rgba(109,109,109,0.38) 45%,rgba(103,103,103,0.38) 46%,rgba(104,104,104,0.39) 47%,rgba(98,98,98,0.39) 48%,rgba(95,95,95,0.4) 50%,rgba(89,89,89,0.41) 52%,rgba(86,86,86,0.42) 53%,rgba(81,81,81,0.42) 54%,rgba(79,79,79,0.43) 55%,rgba(72,72,72,0.43) 56%,rgba(72,72,72,0.44) 57%,rgba(65,65,65,0.45) 59%,rgba(63,63,63,0.45) 60%,rgba(60,60,60,0.46) 61%,rgba(51,51,51,0.47) 63%,rgba(51,51,51,0.47) 64%,rgba(43,43,43,0.48) 66%,rgba(40,40,40,0.49) 67%,rgba(35,35,35,0.49) 68%,rgba(31,31,31,0.5) 70%,rgba(26,26,26,0.55) 73%,rgba(27,27,27,0.57) 74%,rgba(24,24,24,0.59) 75%,rgba(25,25,25,0.61) 76%,rgba(20,20,20,0.66) 79%,rgba(21,21,21,0.69) 81%,rgba(15,15,15,0.74) 84%,rgba(16,16,16,0.76) 85%,rgba(13,13,13,0.78) 86%,rgba(13,13,13,0.8) 87%,rgba(11,11,11,0.82) 88%,rgba(10,10,10,0.87) 91%,rgba(7,7,7,0.91) 94%,rgba(3,3,3,0.94) 96%,rgba(0,0,0,1) 100%);}
+.arrow-icon{width:24px !important; height:24px !important;}
+.why-icons{width:64px !important; height:64px !important;}
